@@ -1,0 +1,2 @@
+# Azure_HTTPTriggerFunctionSample
+
