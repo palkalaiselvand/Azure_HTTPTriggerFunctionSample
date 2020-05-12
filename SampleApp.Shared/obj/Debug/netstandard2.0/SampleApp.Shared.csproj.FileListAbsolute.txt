@@ -1,0 +1,8 @@
+C:\Users\pdhamotharan\source\repos\SampleFunctionApp\SampleApp.Shared\bin\Debug\netstandard2.0\SampleApp.Shared.deps.json
+C:\Users\pdhamotharan\source\repos\SampleFunctionApp\SampleApp.Shared\bin\Debug\netstandard2.0\SampleApp.Shared.dll
+C:\Users\pdhamotharan\source\repos\SampleFunctionApp\SampleApp.Shared\obj\Debug\netstandard2.0\SampleApp.Shared.csprojAssemblyReference.cache
+C:\Users\pdhamotharan\source\repos\SampleFunctionApp\SampleApp.Shared\obj\Debug\netstandard2.0\SampleApp.Shared.AssemblyInfoInputs.cache
+C:\Users\pdhamotharan\source\repos\SampleFunctionApp\SampleApp.Shared\obj\Debug\netstandard2.0\SampleApp.Shared.AssemblyInfo.cs
+C:\Users\pdhamotharan\source\repos\SampleFunctionApp\SampleApp.Shared\bin\Debug\netstandard2.0\SampleApp.Shared.pdb
+C:\Users\pdhamotharan\source\repos\SampleFunctionApp\SampleApp.Shared\obj\Debug\netstandard2.0\SampleApp.Shared.dll
+C:\Users\pdhamotharan\source\repos\SampleFunctionApp\SampleApp.Shared\obj\Debug\netstandard2.0\SampleApp.Shared.pdb

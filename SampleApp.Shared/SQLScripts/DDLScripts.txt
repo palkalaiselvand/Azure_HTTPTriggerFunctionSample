@@ -1,0 +1,39 @@
+﻿Create Database SampleApp
+Go
+
+Use [SampleApp]
+Go
+
+if object_id('dbo.UserDetails') is null
+begin
+Create Table dbo.UserDetails
+(
+Id uniqueidentifier primary key Default(newid()),
+UserName nvarchar(128) not null,
+FirstName nvarchar(256),
+LastName nvarchar(256),
+Department nvarchar(128),
+EmailAddress nvarchar(256),
+META_DateCreated datetime not null Default(Getdate()),
+META_CreatedBy nvarchar(128) not null Default(suser_sname()),
+META_Application nvarchar(128) not null,
+META_DateUpdated datetime ,
+META_UpdatedBy nvarchar(128)
+)
+End
+
+if object_id('dbo.RequestAudit') is null
+begin
+Create Table dbo.RequestAudit
+(
+Id uniqueidentifier primary key Default(newid()),
+RequestId uniqueidentifier not null,
+[Data] nvarchar(max),
+[Status] nvarchar(256),
+META_DateCreated datetime not null Default(Getdate()),
+META_CreatedBy nvarchar(128) not null Default(suser_sname()),
+META_Application nvarchar(128) not null,
+META_DateUpdated datetime ,
+META_UpdatedBy nvarchar(128)
+)
+End

@@ -1,0 +1,11 @@
+C:\Users\pdhamotharan\source\repos\SampleFunctionApp\SampleApp.Domain\bin\Debug\netstandard2.0\SampleApp.Domain.deps.json
+C:\Users\pdhamotharan\source\repos\SampleFunctionApp\SampleApp.Domain\bin\Debug\netstandard2.0\SampleApp.Domain.dll
+C:\Users\pdhamotharan\source\repos\SampleFunctionApp\SampleApp.Domain\bin\Debug\netstandard2.0\SampleApp.Domain.pdb
+C:\Users\pdhamotharan\source\repos\SampleFunctionApp\SampleApp.Domain\bin\Debug\netstandard2.0\SampleApp.Shared.dll
+C:\Users\pdhamotharan\source\repos\SampleFunctionApp\SampleApp.Domain\bin\Debug\netstandard2.0\SampleApp.Shared.pdb
+C:\Users\pdhamotharan\source\repos\SampleFunctionApp\SampleApp.Domain\obj\Debug\netstandard2.0\SampleApp.Domain.csprojAssemblyReference.cache
+C:\Users\pdhamotharan\source\repos\SampleFunctionApp\SampleApp.Domain\obj\Debug\netstandard2.0\SampleApp.Domain.AssemblyInfoInputs.cache
+C:\Users\pdhamotharan\source\repos\SampleFunctionApp\SampleApp.Domain\obj\Debug\netstandard2.0\SampleApp.Domain.AssemblyInfo.cs
+C:\Users\pdhamotharan\source\repos\SampleFunctionApp\SampleApp.Domain\obj\Debug\netstandard2.0\SampleApp.Domain.csproj.CopyComplete
+C:\Users\pdhamotharan\source\repos\SampleFunctionApp\SampleApp.Domain\obj\Debug\netstandard2.0\SampleApp.Domain.dll
+C:\Users\pdhamotharan\source\repos\SampleFunctionApp\SampleApp.Domain\obj\Debug\netstandard2.0\SampleApp.Domain.pdb
