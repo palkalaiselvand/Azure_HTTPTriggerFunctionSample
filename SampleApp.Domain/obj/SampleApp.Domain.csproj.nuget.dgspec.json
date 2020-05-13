@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pdhamotharan\\source\\repos\\SampleFunctionApp\\SampleApp.Domain\\SampleApp.Domain.csproj": {}
+    "C:\\Users\\pdhamotharan\\Documents\\GitHub\\Azure_HTTPTriggerFunctionSample\\SampleApp.Domain\\SampleApp.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pdhamotharan\\source\\repos\\SampleFunctionApp\\SampleApp.Domain\\SampleApp.Domain.csproj": {
+    "C:\\Users\\pdhamotharan\\Documents\\GitHub\\Azure_HTTPTriggerFunctionSample\\SampleApp.Domain\\SampleApp.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pdhamotharan\\source\\repos\\SampleFunctionApp\\SampleApp.Domain\\SampleApp.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\pdhamotharan\\Documents\\GitHub\\Azure_HTTPTriggerFunctionSample\\SampleApp.Domain\\SampleApp.Domain.csproj",
         "projectName": "SampleApp.Domain",
-        "projectPath": "C:\\Users\\pdhamotharan\\source\\repos\\SampleFunctionApp\\SampleApp.Domain\\SampleApp.Domain.csproj",
+        "projectPath": "C:\\Users\\pdhamotharan\\Documents\\GitHub\\Azure_HTTPTriggerFunctionSample\\SampleApp.Domain\\SampleApp.Domain.csproj",
         "packagesPath": "C:\\Users\\pdhamotharan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pdhamotharan\\source\\repos\\SampleFunctionApp\\SampleApp.Domain\\obj\\",
+        "outputPath": "C:\\Users\\pdhamotharan\\Documents\\GitHub\\Azure_HTTPTriggerFunctionSample\\SampleApp.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -32,8 +32,8 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "C:\\Users\\pdhamotharan\\source\\repos\\SampleFunctionApp\\SampleApp.Shared\\SampleApp.Shared.csproj": {
-                "projectPath": "C:\\Users\\pdhamotharan\\source\\repos\\SampleFunctionApp\\SampleApp.Shared\\SampleApp.Shared.csproj"
+              "C:\\Users\\pdhamotharan\\Documents\\GitHub\\Azure_HTTPTriggerFunctionSample\\SampleApp.Shared\\SampleApp.Shared.csproj": {
+                "projectPath": "C:\\Users\\pdhamotharan\\Documents\\GitHub\\Azure_HTTPTriggerFunctionSample\\SampleApp.Shared\\SampleApp.Shared.csproj"
               }
             }
           }
@@ -68,14 +68,14 @@
         }
       }
     },
-    "C:\\Users\\pdhamotharan\\source\\repos\\SampleFunctionApp\\SampleApp.Shared\\SampleApp.Shared.csproj": {
+    "C:\\Users\\pdhamotharan\\Documents\\GitHub\\Azure_HTTPTriggerFunctionSample\\SampleApp.Shared\\SampleApp.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pdhamotharan\\source\\repos\\SampleFunctionApp\\SampleApp.Shared\\SampleApp.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\pdhamotharan\\Documents\\GitHub\\Azure_HTTPTriggerFunctionSample\\SampleApp.Shared\\SampleApp.Shared.csproj",
         "projectName": "SampleApp.Shared",
-        "projectPath": "C:\\Users\\pdhamotharan\\source\\repos\\SampleFunctionApp\\SampleApp.Shared\\SampleApp.Shared.csproj",
+        "projectPath": "C:\\Users\\pdhamotharan\\Documents\\GitHub\\Azure_HTTPTriggerFunctionSample\\SampleApp.Shared\\SampleApp.Shared.csproj",
         "packagesPath": "C:\\Users\\pdhamotharan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pdhamotharan\\source\\repos\\SampleFunctionApp\\SampleApp.Shared\\obj\\",
+        "outputPath": "C:\\Users\\pdhamotharan\\Documents\\GitHub\\Azure_HTTPTriggerFunctionSample\\SampleApp.Shared\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

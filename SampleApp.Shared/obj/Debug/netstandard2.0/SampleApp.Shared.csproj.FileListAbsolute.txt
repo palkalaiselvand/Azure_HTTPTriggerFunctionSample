@@ -6,3 +6,11 @@ C:\Users\pdhamotharan\source\repos\SampleFunctionApp\SampleApp.Shared\obj\Debug\
 C:\Users\pdhamotharan\source\repos\SampleFunctionApp\SampleApp.Shared\bin\Debug\netstandard2.0\SampleApp.Shared.pdb
 C:\Users\pdhamotharan\source\repos\SampleFunctionApp\SampleApp.Shared\obj\Debug\netstandard2.0\SampleApp.Shared.dll
 C:\Users\pdhamotharan\source\repos\SampleFunctionApp\SampleApp.Shared\obj\Debug\netstandard2.0\SampleApp.Shared.pdb
+C:\Users\pdhamotharan\Documents\GitHub\Azure_HTTPTriggerFunctionSample\SampleApp.Shared\obj\Debug\netstandard2.0\SampleApp.Shared.csprojAssemblyReference.cache
+C:\Users\pdhamotharan\Documents\GitHub\Azure_HTTPTriggerFunctionSample\SampleApp.Shared\obj\Debug\netstandard2.0\SampleApp.Shared.AssemblyInfoInputs.cache
+C:\Users\pdhamotharan\Documents\GitHub\Azure_HTTPTriggerFunctionSample\SampleApp.Shared\obj\Debug\netstandard2.0\SampleApp.Shared.AssemblyInfo.cs
+C:\Users\pdhamotharan\Documents\GitHub\Azure_HTTPTriggerFunctionSample\SampleApp.Shared\obj\Debug\netstandard2.0\SampleApp.Shared.dll
+C:\Users\pdhamotharan\Documents\GitHub\Azure_HTTPTriggerFunctionSample\SampleApp.Shared\obj\Debug\netstandard2.0\SampleApp.Shared.pdb
+C:\Users\pdhamotharan\Documents\GitHub\Azure_HTTPTriggerFunctionSample\SampleApp.Shared\bin\Debug\netstandard2.0\SampleApp.Shared.deps.json
+C:\Users\pdhamotharan\Documents\GitHub\Azure_HTTPTriggerFunctionSample\SampleApp.Shared\bin\Debug\netstandard2.0\SampleApp.Shared.dll
+C:\Users\pdhamotharan\Documents\GitHub\Azure_HTTPTriggerFunctionSample\SampleApp.Shared\bin\Debug\netstandard2.0\SampleApp.Shared.pdb

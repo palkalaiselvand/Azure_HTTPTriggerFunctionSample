@@ -1,25 +1,39 @@
 ﻿using Microsoft.Azure.ServiceBus;
+using Microsoft.Azure.ServiceBus.Management;
 using Newtonsoft.Json;
 using SampleApp.Shared.AzureAssets.Abstraction;
+using SampleApp.Shared.ProcessEntities;
 using System;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SampleApp.Shared.AzureAssets
 {
-    public class ServiceBusFactory : IAzureStorageFactory
+    public class ServiceBusFactory : IServiceBusFactory
     {
-        public string ServiceBusConnectionString = Environment.GetEnvironmentVariable(AppSettingsKey.SampleApp_ServiceBus_ConnectionString);
         static IQueueClient queueClient;
-        public async Task SendMessage<T>(T message, string queueName)
+        public async Task SendMessage<T>(T message, AzureMessageContext context)
         {
             try
             {
-                queueClient = new QueueClient(ServiceBusConnectionString, queueName);
+                var mgmtQueueClient = new ManagementClient(context.ConnectionString);
 
-                var data = FormatMessage(message);
+                var queues = await mgmtQueueClient.GetQueuesAsync();
 
-                queueClient.SendAsync(data).GetAwaiter().GetResult();
+                if (queues.Count == 0 ||
+                    (!queues.Any(x => x.Path == context.QueueOrTopicName.ToLower())))
+                {
+                    await mgmtQueueClient.CreateQueueAsync(context.QueueOrTopicName);
+                }
+
+                queueClient = new QueueClient(context.ConnectionString, context.QueueOrTopicName);
+
+                queueClient.ServiceBusConnection.TransportType = TransportType.AmqpWebSockets;
+
+                var sbMessage = FormatMessage(message);
+
+                queueClient.SendAsync(sbMessage).Wait();
 
             }
             catch (Exception ex)

@@ -1,20 +1,21 @@
-using System;
-using System.IO;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using SampleFunctionApp.HttpTrigger;
-using SampleApp.Domain.Repository.Abstraction;
-using SampleApp.Shared.Data;
-using SampleApp.Shared.Constants;
 using SampleApp.Domain.Engine;
+using SampleApp.Domain.Repository.Abstraction;
+using SampleApp.Shared;
 using SampleApp.Shared.AzureAssets.Abstraction;
-using Microsoft.Azure.Functions.Extensions.DependencyInjection;
-using Neleus.DependencyInjection.Extensions;
+using SampleApp.Shared.Constants;
+using SampleApp.Shared.Data;
+using SampleApp.Shared.Enums;
+using SampleApp.Shared.Extension;
+using SampleFunctionApp.HttpTrigger;
+using System;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace SampleFunctionApp
 {
@@ -22,15 +23,18 @@ namespace SampleFunctionApp
     {
         private readonly IRequestAuditRepository _audit;
         private readonly IUserDetailsEngine _engine;
-        private readonly IAzureStorageFactory _service;
+        private readonly IServiceBusFactory _serviceBus;
+        private readonly IStorageQueueFactory _storageQueue;
 
         public UserDetailsTrigger(IRequestAuditRepository audit,
                                   IUserDetailsEngine engine,
-                                  IAzureStorageFactory service)
+                                  IServiceBusFactory serviceBus,
+                                  IStorageQueueFactory storageQueue)
         {
             _audit = audit;
             _engine = engine;
-            _service = service;
+            _serviceBus = serviceBus;
+            _storageQueue = storageQueue;
         }
         [FunctionName(nameof(UserDetailsTrigger))]
         public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "v1/userdetails")] HttpRequest req,
@@ -76,7 +80,15 @@ namespace SampleFunctionApp
 
                 await _engine.Process(data);
 
-                await _service.SendMessage(data, "userdetailsqueue");
+                var azureContext = AzureAssets.GetAzureAssets(Environment.GetEnvironmentVariable(AppSettingsKey.AzureQueueAssets));
+                if (azureContext.AssetsType == AssetsType.ServiceBus)
+                {
+                    await _serviceBus.SendMessage(data, azureContext);
+                }
+                else
+                {
+                    await _storageQueue.SendMessage(data, azureContext);
+                }
 
                 await _audit.Update(requestId, ProcessStatus.COMPLETED);
 
