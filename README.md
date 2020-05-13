@@ -84,7 +84,7 @@ Azure_HTTPTriggerFunctionSample
   ##### Sample message format
    Since this app is using HTTP trigger the sample post request body is available under SampleFunctionApp\SampleApp.Shared\SQLScripts (Message)
     
-    ```json
+    ~~~json
     {
       "UserName": "palkalaislevand",
       "FirstName": "Palkalaiselvan",
@@ -92,4 +92,4 @@ Azure_HTTPTriggerFunctionSample
       "EmailAddress": "palkalaiselvand@outlook.com",
       "Department": "Information Technology"
     }
-    ```
+    ~~~
