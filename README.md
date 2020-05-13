@@ -58,19 +58,22 @@ Azure_HTTPTriggerFunctionSample
    
          "SampleApp_ServiceBus_ConnectionString": <place your connection string>
         
-  ##### Queue Name
+#### Queue Name
    This application provide option to configure the queue name based on need, we have inrtroduced this configuration. Make sure the queue name must be in lower case to avoid failure
    
          "SampleApp_ServiceBus_QueueName": <Service bus queue>,
          "SampleApp_StorageQueueName": <storage queue>,
         
-  ##### Configuration which decides to use Azure service bus OR Storage account
+#### Configuration which decides to use Azure service bus OR Storage account
    Based on this setting application post the message to either service bus or storage account
    
          "AzureQueueAssets": "ServiceBus|Queue" OR "StorageAccount|Queue"
     
-  ##### Data base set up
-      SQL DDL scripts are created and available under `SampleFunctionApp\SampleApp.Shared\SQLScripts (DDL Script)`
+#### Data base set up
+   SQL DDL scripts are created and available under solution folder.
+   
+      `SampleFunctionApp\SampleApp.Shared\SQLScripts\DDL Script.sql`
+      
   ##### Sample message format
    Since this app is using HTTP trigger the sample post request body is available under SampleFunctionApp\SampleApp.Shared\SQLScripts (Message)
       
