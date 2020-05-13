@@ -43,45 +43,53 @@ Azure_HTTPTriggerFunctionSample
   This the primay settings we need to take care of and below are varios typers of `connection string` we have used in this project
 
   ##### Data base
-    As this application tracking each request and process the request we have been making entries in data base. please change your connection string in the settings json file
-    ```
+   As this application tracking each request and process the request we have been making entries in data base. please change your connection string in the settings json file
+   
+    ```json
      "SampleApp_ConnectionString": 
       "Data Source=<DB serever>;Initial Catalog=SampleApp;Integrated Security=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"
     ```
+    
   ##### Storage Account
-    As this application send the mesage to the storage account queue based on configuraion. please change your connection string in the settings json file
-    ```
+   As this application send the mesage to the storage account queue based on configuraion. please change your connection string in the settings json file
+   
+    ```json
      "SampleApp_StorageAccount_ConnectionString": "<place your storage account connection string>"
     ```
+    
    ##### Service Bus
-    As this application send the mesage to the Service bus queue based on configuraion. please change your connection string in the settings json file
-    ```
+   As this application send the mesage to the Service bus queue based on configuraion. please change your connection string in the settings json file
+   
+    ```json
      "SampleApp_ServiceBus_ConnectionString": <place your connection string>
     ```
     
   ##### Queue Name
-    This application provide option to configure the queue name based on need, we have inrtroduced this configuration. Make sure the queue name must be in lower case to avoid failure
-    ```
+   This application provide option to configure the queue name based on need, we have inrtroduced this configuration. Make sure the queue name must be in lower case to avoid failure
+   
+    ```json
      "SampleApp_ServiceBus_QueueName": <Service bus queue>,
      "SampleApp_StorageQueueName": <storage queue>,
     ```
+    
   ##### Configuration which decides to use Azure service bus OR Storage account
-    Based on this setting application post the message to either service bus or storage account
-    ```
+   Based on this setting application post the message to either service bus or storage account
+   
+    ```json
      "AzureQueueAssets": "ServiceBus|Queue" OR "StorageAccount|Queue"
     ```
 
   ##### Data base set up
       SQL DDL scripts are created and available under `SampleFunctionApp\SampleApp.Shared\SQLScripts (DDL Script)`
   ##### Sample message format
-    Since this app is using HTTP trigger the sample post request body is available under SampleFunctionApp\SampleApp.Shared\SQLScripts (Message)
+   Since this app is using HTTP trigger the sample post request body is available under SampleFunctionApp\SampleApp.Shared\SQLScripts (Message)
     
-    ```
+    ```json
     {
-  "UserName": "palkalaislevand",
-  "FirstName": "Palkalaiselvan",
-  "LastName": "Dhamotharan",
-  "EmailAddress": "palkalaiselvand@outlook.com",
-  "Department": "Information Technology"
-}
+      "UserName": "palkalaislevand",
+      "FirstName": "Palkalaiselvan",
+      "LastName": "Dhamotharan",
+      "EmailAddress": "palkalaiselvand@outlook.com",
+      "Department": "Information Technology"
+    }
     ```
