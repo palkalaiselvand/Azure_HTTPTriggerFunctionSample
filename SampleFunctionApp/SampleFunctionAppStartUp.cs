@@ -20,7 +20,7 @@ namespace SampleFunctionApp
         {
             //Database
             builder.Services.AddDbContext<SampleAppDBContext>(options =>
-            options.UseSqlServer(Environment.GetEnvironmentVariable(AppSettingsKey.SampleApp_ConnectionString)));
+            options.UseSqlServer(Environment.GetEnvironmentVariable(AppSettingsKey.SampleAppDB_ConnectionString)));
             builder.Services.AddTransient<ISampleAppDBContext, SampleAppDBContext>();
 
             //Rerposiroty
@@ -31,7 +31,8 @@ namespace SampleFunctionApp
             builder.Services.AddTransient<IUserDetailsEngine, UserDetailsEngine>();
 
             //Azure assets
-            builder.Services.AddTransient<IAzureStorageFactory, StorageQueueFactory>();
+            builder.Services.AddTransient<IServiceBusFactory, ServiceBusFactory>();
+            builder.Services.AddTransient<IStorageQueueFactory, StorageQueueFactory>();
         }
     }
 }
