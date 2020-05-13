@@ -13,5 +13,5 @@ SQL DDL scripts are available under SampleFunctionApp\SampleApp.Shared\SQLScript
 
 Since this app is using HTTP trigger the sample post request body is available under SampleFunctionApp\SampleApp.Shared\SQLScripts (Message)
 
-[![GitHub Issues](https://img.shields.io/github/issues/IgorAntun/node-chat.svg)](https://github.com/IgorAntun/node-chat/issues) 
+[![GitHub Issues](https://img.shields.io/github/issues/IgorAntun/node-chat.svg)](https://github.com/palkalaiselvand/Azure_HTTPTriggerFunctionSample/issues) 
 [![Current Version](https://img.shields.io/badge/version-1.0.7-green.svg)](https://github.com/IgorAntun/node-chat)
