@@ -74,9 +74,9 @@ Azure_HTTPTriggerFunctionSample
    
     .    
     ├── SampleFunctionApp
-    │   ├── SampleApp.Shared
-    │       ├── SQLScripts
-    │         ├── DDL Script.sql
+    │   └── SampleApp.Shared
+    │       └── SQLScripts
+    │         └── DDL Script.sql
     
       
   ##### Sample message format
