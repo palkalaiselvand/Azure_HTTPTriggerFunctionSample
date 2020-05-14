@@ -61,26 +61,16 @@ namespace SampleFunctionApp
 
                 //Audit the request for suppoert purpose
 
-                await _audit.Create(
-                    new RequestAudit
-                    {
-                        RequestId = requestId,
-                        Data = requestBody,
-                        Status = ProcessStatus.NEW,
-                        META_Application = MetaData.ApplicationName,
-                        META_CreatedBy = MetaData.UserName,
-                        META_DateCreated = DateTime.UtcNow
-                    });
+                await _audit.Create(new RequestAudit { RequestId = requestId, Data = requestBody });
 
                 var data = JsonConvert.DeserializeObject<UserDetails>(requestBody);
-                //add meta info to db records
-                data.META_Application = MetaData.ApplicationName;
-                data.META_CreatedBy = MetaData.UserName;
-                data.META_DateCreated = DateTime.UtcNow;
 
+                data.Id = requestId;
                 await _engine.Process(data);
 
                 var azureContext = AzureAssets.GetAzureAssets(Environment.GetEnvironmentVariable(AppSettingsKey.AzureQueueAssets));
+                
+
                 if (azureContext.AssetsType == AssetsType.ServiceBus)
                 {
                     await _serviceBus.SendMessage(data, azureContext);

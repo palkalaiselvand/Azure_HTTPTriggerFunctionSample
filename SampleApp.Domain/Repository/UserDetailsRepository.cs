@@ -1,10 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SampleApp.Domain.Repository.Abstraction;
+using SampleApp.Shared.Constants;
 using SampleApp.Shared.Data;
 using SampleApp.Shared.Data.Abstraction;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace SampleApp.Domain.Repository
@@ -18,6 +17,10 @@ namespace SampleApp.Domain.Repository
         }
         public async Task<UserDetails> Create(UserDetails userDetails)
         {
+            userDetails.META_Application = MetaData.ApplicationName;
+            userDetails.META_CreatedBy = MetaData.UserName;
+            userDetails.META_DateCreated = DateTime.UtcNow;
+
             _context.UserDetails.Add(userDetails);
             await _context.SaveChangesAsync(new System.Threading.CancellationToken());
             return userDetails;
