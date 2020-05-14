@@ -4,10 +4,10 @@
 		"AzureWebJobsStorage": "UseDevelopmentStorage=true",
 		"FUNCTIONS_WORKER_RUNTIME": "dotnet",
 		"SampleApp_ConnectionString": "Data Source=(localdb)\\ProjectsV13;Initial Catalog=SampleApp;Integrated Security=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False",
-		"SampleApp_ServiceBus_ConnectionString": "Endpoint=sb://developmentaccount.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=2m+dy8rXboZmHrDdqkDod46Hg/DThH9aYEM1ZYFWUpo=",
+		"SampleApp_ServiceBus_ConnectionString": "Endpoint=sb://developmentaccount.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=2m+dy8rXboZmHrDdqkDod46Hg/DThH9aYEM1ZYFWUpoE=",
 		"SampleApp_ServiceBus_QueueName": "sbuserdetailsqueue",
 		"SampleApp_ServiceBus_TopicName": "sbuserdetailstopic",
-		"SampleApp_StorageAccount_ConnectionString": "DefaultEndpointsProtocol=https;AccountName=storaccpocctr;AccountKey=SzlfpjbTy+VpR0DqJHt6Wb4/TP1MEPV0eIsjHepxSxXQ5e3RitFTwwz5clAxWxXAloNO2Hc2yZvePHks65I/qg==;EndpointSuffix=core.windows.net",
+		"SampleApp_StorageAccount_ConnectionString": "DefaultEndpointsProtocol=https;AccountName=storaccpocctr;AccountKey=SzlfpjbTy+VpR0DqJHt6Wb4/TP1MEPV0eIsjHepxSxXQ5e3RitFTwwz5clAxWxXAloNO2Hc2yZvePHks65I/qgJ==;EndpointSuffix=core.windows.net",
 		"SampleApp_StorageQueueName": "squserdetailsqueue",
 		"AzureQueueAssets": "ServiceBus|Queue"
 	}

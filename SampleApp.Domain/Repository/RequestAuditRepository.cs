@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SampleApp.Domain.Repository.Abstraction;
+using SampleApp.Shared.Constants;
 using SampleApp.Shared.Data;
 using SampleApp.Shared.Data.Abstraction;
 using System;
@@ -19,6 +20,11 @@ namespace SampleApp.Domain.Repository
         {
             try
             {
+                request.Status = ProcessStatus.NEW;
+                request.META_Application = MetaData.ApplicationName;
+                request.META_CreatedBy = MetaData.UserName;
+                request.META_DateCreated = DateTime.UtcNow;
+
                 _context.RequestAudits.Add(request);
                 await _context.SaveChangesAsync(new CancellationToken());
             }
