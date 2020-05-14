@@ -69,7 +69,7 @@ Azure_HTTPTriggerFunctionSample
    
          "AzureQueueAssets": <we must use one from below with same format>
          "ServiceBus|Queue" This will post the message on to the Queue in azure service bus
-         "ServiceBus|Topic" This will post the message on to the Topic in azure service bus. You could have choosen other than BASIC procing tire when creating azure service bus. Basic tire doesn't support Topic feature.
+         "ServiceBus|Topic" This will post the message on to the Topic in azure service bus. You could have choosen other than BASIC pricing tier when creating azure service bus. Basic tier doesn't support Topic feature.
          "StorageAccount|Queue" This will post the message on to the Queue in azure storage account
     
 #### Data base set up
