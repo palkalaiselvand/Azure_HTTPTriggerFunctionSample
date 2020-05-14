@@ -72,7 +72,12 @@ Azure_HTTPTriggerFunctionSample
 #### Data base set up
    SQL DDL scripts are created and available under solution folder.
    
-      `SampleFunctionApp\SampleApp.Shared\SQLScripts\DDL Script.sql`
+    .    
+    ├── SampleFunctionApp
+    │   ├── SampleApp.Shared
+    │       ├── SQLScripts
+    │         ├── DDL Script.sql
+    
       
   ##### Sample message format
    Since this app is using HTTP trigger the sample post request body is available under SampleFunctionApp\SampleApp.Shared\SQLScripts (Message)
