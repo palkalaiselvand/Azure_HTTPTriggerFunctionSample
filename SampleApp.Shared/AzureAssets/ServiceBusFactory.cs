@@ -79,11 +79,11 @@ namespace SampleApp.Shared.AzureAssets
 
                 topicClient = new TopicClient(context.ConnectionString, context.QueueOrTopicName);
 
-                queueClient.ServiceBusConnection.TransportType = TransportType.AmqpWebSockets;
+                topicClient.ServiceBusConnection.TransportType = TransportType.AmqpWebSockets;
 
                 var sbMessage = FormatMessage(message);
 
-                queueClient.SendAsync(sbMessage).Wait();
+                topicClient.SendAsync(sbMessage).Wait();
 
             }
             catch (ServiceBusException sbex)
