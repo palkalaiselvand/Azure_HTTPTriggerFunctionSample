@@ -97,7 +97,9 @@ namespace SampleApp.Shared.AzureAssets
         }
         private Message FormatMessage<T>(T queueMessage)
         {
-            Message message = new Message(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(queueMessage)))
+            var type = queueMessage.GetType();
+            string data = type.Name == "String" ? queueMessage.ToString() : JsonConvert.SerializeObject(queueMessage);
+            Message message = new Message(Encoding.UTF8.GetBytes(data))
             {
                 MessageId = Guid.NewGuid().ToString(),
                 SessionId = Guid.NewGuid().ToString()

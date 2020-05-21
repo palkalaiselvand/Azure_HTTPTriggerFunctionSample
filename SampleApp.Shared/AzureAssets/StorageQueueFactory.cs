@@ -49,8 +49,10 @@ namespace SampleApp.Shared.AzureAssets
             }
         }
 
-        private async Task<bool> AddMessageAsync<T>(string queue, T message)
+        private async Task<bool> AddMessageAsync<T>(string queue, T queueMessage)
         {
+            var type = queueMessage.GetType();
+            string data = type.Name == "String" ? queueMessage.ToString() : JsonConvert.SerializeObject(queueMessage);
             var cloudQueue = _cloudQueueClient.GetQueueReference(queue.ToLower());
             await Policy
                 .Handle<StorageException>()
@@ -60,7 +62,7 @@ namespace SampleApp.Shared.AzureAssets
                 })
                 .ExecuteAsync(async () =>
                 {
-                    await cloudQueue.AddMessageAsync(new CloudQueueMessage(JsonConvert.SerializeObject(message)));
+                    await cloudQueue.AddMessageAsync(new CloudQueueMessage(data));
                 });
             return true;
         }
