@@ -61,15 +61,15 @@ namespace SampleFunctionApp
 
                 //Audit the request for suppoert purpose
 
-                await _audit.Create(new RequestAudit { RequestId = requestId, Data = requestBody });
+                //await _audit.Create(new RequestAudit { RequestId = requestId, Data = requestBody });
 
-                var data = JsonConvert.DeserializeObject<UserDetails>(requestBody);
+                //var data = JsonConvert.DeserializeObject<UserDetails>(requestBody);
 
-                data.Id = requestId;
-                await _engine.Process(data);
+                //data.Id = requestId;
+                //await _engine.Process(data);
 
                 var azureContext = AzureAssets.GetAzureAssets(Environment.GetEnvironmentVariable(AppSettingsKey.AzureQueueAssets));
-                
+                var data = requestBody;
 
                 if (azureContext.AssetsType == AssetsType.ServiceBus)
                 {
