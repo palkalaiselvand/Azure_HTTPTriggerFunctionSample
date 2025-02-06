@@ -37,11 +37,12 @@ namespace SampleFunctionApp
             _storageQueue = storageQueue;
         }
         [FunctionName(nameof(UserDetailsTrigger))]
-        public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "v1/userdetails")] HttpRequest req,
+        public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "post", Route = "v1/userdetails")] HttpRequest req,
             ILogger logger)
         {
+            string customKey = req.Headers["CustomAuthKey"];
             return await Request(req, logger)
-                .Authorize(AuthorizationLevel.Anonymous)
+                .Authorize(AuthorizationLevel.Function, customKey)
                 .Run(Work);
         }
 

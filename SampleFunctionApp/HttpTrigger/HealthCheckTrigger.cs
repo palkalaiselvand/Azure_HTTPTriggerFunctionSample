@@ -11,10 +11,16 @@ namespace SampleFunctionApp.HttpTrigger
     {
         [FunctionName("HealthCheckTrigger")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req,
             ILogger log)
         {
             log.LogInformation("HealthCheckTrigger function processed a request.");
+
+            string customKey = req.Headers["CustomAuthKey"];
+            if (!new BaseHttpTrigger().ValidateCustomKey(customKey))
+            {
+                return new UnauthorizedResult();
+            }
 
             return new OkObjectResult("App is healthy");
         }
