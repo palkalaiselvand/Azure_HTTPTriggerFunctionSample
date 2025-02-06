@@ -23,4 +23,7 @@
       <CopyToPublishDirectory>Never</CopyToPublishDirectory>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HttpTrigger\HealthCheckTrigger.cs" />
+  </ItemGroup>
 </Project>
