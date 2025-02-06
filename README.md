@@ -93,4 +93,70 @@ Azure_HTTPTriggerFunctionSample
       "EmailAddress": "palkalaiselvand@outlook.com",
       "Department": "Information Technology"
     }
-    
+
+### Custom Key-based Authentication
+
+To set up custom key-based authentication, follow these steps:
+
+1. Add a custom key to your `local.settings.json` file:
+
+    ```json
+    {
+      "IsEncrypted": false,
+      "Values": {
+        "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+        "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+        "SampleApp_ConnectionString": "Data Source=(localdb)\\ProjectsV13;Initial Catalog=SampleApp;Integrated Security=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False",
+        "SampleApp_ServiceBus_ConnectionString": "Endpoint=sb://developmentaccount.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=2m+dy8rXboZmHrDdqkDod46Hg/DThH9aYEM1ZYFWUpo=",
+        "SampleApp_ServiceBus_QueueName": "sbuserdetailsqueue",
+        "SampleApp_ServiceBus_TopicName": "sbuserdetailstopic",
+        "SampleApp_StorageAccount_ConnectionString": "DefaultEndpointsProtocol=https;AccountName=storaccpocctr;AccountKey=SzlfpjbTy+VpR0DqJHt6Wb4/TP1MEPV0eIsjHepxSxXQ5e3RitFTwwz5clAxWxXAloNO2Hc2yZvePHks65I/qg==;EndpointSuffix=core.windows.net",
+        "SampleApp_StorageQueueName": "squserdetailsqueue",
+        "AzureQueueAssets": "ServiceBus|Queue",
+        "CustomAuthKey": "your-custom-key"
+      }
+    }
+    ```
+
+2. Update your HTTP trigger functions to use the custom key for authentication. For example, in `UserDetailsTrigger.cs`, pass the custom key to the `Authorize` method:
+
+    ```csharp
+    [FunctionName(nameof(UserDetailsTrigger))]
+    public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "post", Route = "v1/userdetails")] HttpRequest req,
+        ILogger logger)
+    {
+        string customKey = req.Headers["CustomAuthKey"];
+        return await Request(req, logger)
+            .Authorize(AuthorizationLevel.Function, customKey)
+            .Run(Work);
+    }
+    ```
+
+3. Implement the `ValidateCustomKey` method in `BaseHttpTrigger.cs` to perform custom key-based authentication:
+
+    ```csharp
+    public class BaseHttpTrigger
+    {
+        // Existing code...
+
+        public bool ValidateCustomKey(string customKey)
+        {
+            string expectedKey = Environment.GetEnvironmentVariable("CustomAuthKey");
+            return customKey == expectedKey;
+        }
+    }
+    ```
+
+4. Update the `Authorize` method in `BaseHttpTrigger.cs` to accept a custom key and validate it using `ValidateCustomKey`:
+
+    ```csharp
+    public RequestContext Authorize(AuthorizationLevel authorizationLevel, string customKey)
+    {
+        _authorizationLevel = authorizationLevel;
+        if (!ValidateCustomKey(customKey))
+        {
+            throw new UnauthorizedAccessException("Invalid custom key");
+        }
+        return this;
+    }
+    ```

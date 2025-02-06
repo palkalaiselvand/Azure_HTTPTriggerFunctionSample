@@ -15,6 +15,12 @@ namespace SampleFunctionApp.HttpTrigger
         {
             return new RequestContext(req, logger);
         }
+
+        public bool ValidateCustomKey(string customKey)
+        {
+            string expectedKey = Environment.GetEnvironmentVariable("CustomAuthKey");
+            return customKey == expectedKey;
+        }
     }
 
     public class RequestContext
@@ -22,17 +28,22 @@ namespace SampleFunctionApp.HttpTrigger
         private readonly HttpRequest _httpRequest;
         private readonly ILogger _logger;
         private AuthorizationLevel _authorizationLevel;
+        private string _customKey;
+
         public RequestContext(HttpRequest httpRequest, ILogger logger)
         {
             _httpRequest = httpRequest;
             _logger = logger;
         }
 
-        public RequestContext Authorize(AuthorizationLevel authorizationLevel)
+        public RequestContext Authorize(AuthorizationLevel authorizationLevel, string customKey)
         {
-            //TODO: Load required data to perform authenticationa nd authorization
-            // For now just to have a place holder I created this
             _authorizationLevel = authorizationLevel;
+            _customKey = customKey;
+            if (!new BaseHttpTrigger().ValidateCustomKey(customKey))
+            {
+                throw new UnauthorizedAccessException("Invalid custom key");
+            }
             return this;
         }
 
@@ -40,14 +51,11 @@ namespace SampleFunctionApp.HttpTrigger
         {
             try
             {
-                //TODO: Perform custom authentication and authorization logic
-                // For now just to have a place holder I created this
-                if (_authorizationLevel != AuthorizationLevel.Anonymous)
+                if (_authorizationLevel != AuthorizationLevel.Anonymous && !new BaseHttpTrigger().ValidateCustomKey(_customKey))
                 {
                     return new ForbidResult();
                 }
 
-                //Call the actual WORK method to perform the task
                 return await func(_httpRequest, _logger);
             }
             catch (Exception ex)
