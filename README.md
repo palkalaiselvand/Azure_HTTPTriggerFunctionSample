@@ -12,6 +12,7 @@ Azure_HTTPTriggerFunctionSample
 - Azure queue are completely configurable from `localSettings.json` file
 - Supports both Service bus queue and Storage queue
 - Queue can be created dynamicaly on the fly
+- Health check endpoint to verify the app status
 
 ### Technology Used
 
